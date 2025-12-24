@@ -72,8 +72,9 @@ app.post('/proxy/claude', upload.single('image'), async (req, res) => {
         const { model, stream } = req.body;
         let { messages, prompt, message } = req.body;
 
-        // Hardcoded key for server-side proxy simplicity (matches api.js)
-        const CLAUDE_KEY = "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"; 
+        // Load key from config (which is gitignored)
+        const API_CONFIG = require('./config/api');
+        const CLAUDE_KEY = API_CONFIG.CLAUDE_KEY; 
         
         // 1. Prepare Messages
         // If client sent 'messages' (e.g. vision or chat history), use it.
