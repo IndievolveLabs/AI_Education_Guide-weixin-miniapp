@@ -41,7 +41,7 @@ The mini program relies on a local proxy server to communicate with LLM APIs.
 npm install
 
 # Start the server
-node server_new.js
+node server.js
 ```
 The server will run on `http://localhost:9100`.
 
